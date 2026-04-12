@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f9f7eb;
+  --cream-dark: #f0edd8;
+  --cream-mid: #eae7d0;
+  --ink: #141410;
+  --ink-60: rgba(20, 20, 16, 0.6);
+  --ink-20: rgba(20, 20, 16, 0.12);
+  --red: #D42B20;
+  --red-dim: #b61915;
+  --red-glow: rgba(212, 43, 32, 0.15);
+  --white: #ffffff;
+  --surface-mid: #f2f0e0;
+  --outline: rgba(144, 111, 107, 0.25);
+  --border: rgba(20, 20, 16, 0.1);
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-cream-mid: var(--cream-mid);
+  --color-ink: var(--ink);
+  --color-ink-60: var(--ink-60);
+  --color-ink-20: var(--ink-20);
+  --color-red: var(--red);
+  --color-red-dim: var(--red-dim);
+  --color-red-glow: var(--red-glow);
+  --color-white: var(--white);
+  --color-surface-mid: var(--surface-mid);
+  --color-outline: var(--outline);
+  --color-border: var(--border);
+
+  --font-space-grotesk: var(--font-space-grotesk);
+  --font-barlow-condensed: var(--font-barlow-condensed);
+  --font-dm-serif-display: var(--font-dm-serif-display);
+  --font-inter: var(--font-inter);
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-inter), sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--red-dim);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink-20);
+    padding: 13px 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--ink);
+  }
+}
