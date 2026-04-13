@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 w-full z-100 bg-cream/85 backdrop-blur-[16px] border-b border-border">
+    <nav className="fixed top-0 w-full z-[100] bg-cream/85 backdrop-blur-[16px] border-b border-border">
       <div className="flex justify-between items-center px-12 py-5 max-w-[1440px] mx-auto md:px-6">
         <Link href="/" className="font-barlow-condensed text-[1.6rem] font-black tracking-[0.05em] uppercase text-ink no-underline">
           KINETIC
